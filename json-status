@@ -213,8 +213,7 @@ if ! command -v host &>/dev/null || ! command -v perl &>/dev/null; then
     DNS_CACHE=0
 fi
 
-VER_OK=$( echo "$CURL_VER" | perl -ne '@v=split(/\./); if ($v[0] == 7) { if ($v[1] >= 22) { printf("1");exit; } else { printf("0");exit; } } if ($v[0] > 7) { pr
-intf("1");exit; } printf("0");exit;')
+VER_OK=$( echo "$CURL_VER" | perl -ne '@v=split(/\./); if ($v[0] == 7) { if ($v[1] >= 22) { printf("1");exit; } else { printf("0");exit; } } if ($v[0] > 7) { printf("1");exit; } printf("0");exit;')
 if [ $VER_OK -ne 1 ]; then
 	echo "WARNING: curl version is too old ($CURL_VER < 7.22.0), not using script's DNS cache."
 	DNS_CACHE=0
